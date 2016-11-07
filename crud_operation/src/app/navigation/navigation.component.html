@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light bg-faded">
   <div class="nav navbar-nav">
-    <a class="nav-item nav-link active" href="#">ngProject</a>
-    <a class="nav-item nav-link" href="#">Users</a>
-    <a class="nav-item nav-link" href="#">Posts</a>
+    <a class="nav-item nav-link" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">ngProject</a>
+    <a class="nav-item nav-link" [routerLink]="['users']" routerLinkActive="active">Users</a>
+    <a class="nav-item nav-link" [routerLink]="['posts']" routerLinkActive="active">Posts</a>
   </div>
 </nav>
