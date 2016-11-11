@@ -1,0 +1,52 @@
+<div class="row">
+  <h2>Add New User</h2>
+</div>
+<div class="row">
+  <form [formGroup]="form">
+    <fieldset>
+      <legend>User</legend>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input name="name"
+               formControlName="name"
+               type="text"
+               class="form-control"
+               id="name"
+               placeholder="Enter name">
+        <div *ngIf="name.errors && name.touched">
+          <div *ngIf="name.errors.required" class="alert alert-danger" role="alert">
+            Name is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="number" class="form-control" id="phone" placeholder="Enter phone">
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Address</legend>
+      <div class="form-group">
+        <label for="street">Street</label>
+        <input type="text" class="form-control" id="street" placeholder="Enter street">
+      </div>
+      <div class="form-group">
+        <label for="suite">suite</label>
+        <input type="text" class="form-control" id="suite" placeholder="Enter suite">
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" placeholder="Enter city">
+      </div>
+      <div class="form-group">
+        <label for="zipcode">ZipCode</label>
+        <input type="number" class="form-control" id="zipcode" placeholder="Enter zipcode">
+      </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>

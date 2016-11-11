@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -9,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { PostsComponent } from './posts/posts.component';
 import {RouterModule} from "@angular/router";
+import { AddUserComponent } from './users/add-user/add-user.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,15 +17,17 @@ import {RouterModule} from "@angular/router";
     NavigationComponent,
     HomeComponent,
     UsersComponent,
-    PostsComponent
+    PostsComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
       { path: 'users', component: UsersComponent },
+      { path: 'users/new', component: AddUserComponent },
       { path: 'posts', component: PostsComponent },
       {path: '**', redirectTo: '/'}
     ])
