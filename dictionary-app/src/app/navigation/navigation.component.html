@@ -4,9 +4,9 @@
 <div class="row">
   <nav class="navbar navbar-light bg-faded">
     <div class="nav navbar-nav">
-      <a class="nav-item nav-link home">Home</a>
-      <a class="nav-item nav-link projects">Projects</a>
-      <a class="nav-item nav-link dictionaries">Dictionaries</a>
+      <a class="nav-item nav-link home" routerLink="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a class="nav-item nav-link projects" [routerLink]="['projects']" routerLinkActive="active">Projects</a>
+      <a class="nav-item nav-link dictionaries" [routerLink]="['dictionaries']" routerLinkActive="active">Dictionaries</a>
     </div>
   </nav>
 </div>

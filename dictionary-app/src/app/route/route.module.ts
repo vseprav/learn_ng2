@@ -17,4 +17,4 @@ import {DictionariesComponent} from "../dictionaries/dictionaries.component";
     RouterModule
   ]
 })
-export class RouteModule { }
+export class DictionaryRouterModule { }

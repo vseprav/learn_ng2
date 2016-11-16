@@ -3,7 +3,11 @@
 import {TestBed, async, ComponentFixture} from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import {NavigationComponent} from "./navigation/navigation.component";
-import {RouterModule, RouterOutletMap} from "@angular/router";
+import { Router} from "@angular/router";
+import {
+  RouterLinkStubDirective, RouterOutletStubComponent, RouterStub,
+  RouterLinkStubActiveOptions
+} from "../../testing/router-stubs";
 
 describe('App: DictionaryApp', () => {
 
@@ -14,10 +18,12 @@ describe('App: DictionaryApp', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        NavigationComponent
+        NavigationComponent,
+        RouterLinkStubDirective,
+        RouterOutletStubComponent,
+        RouterLinkStubActiveOptions
       ],
-      imports: [RouterModule],
-      providers:[RouterOutletMap]
+      providers: [{ provide: Router, useClass: RouterStub }],
     });
 
     fixture = TestBed.createComponent(AppComponent);
