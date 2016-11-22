@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import {DictionaryRouterModule} from "./route/route.module";
 import { ProjectsComponent } from './projects/projects.component';
 import { DictionariesComponent } from './dictionaries/dictionaries.component';
+import { ProjectComponent } from './projects/project/project.component';
+import {ProjectService} from "./project.service";
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { DictionariesComponent } from './dictionaries/dictionaries.component';
     NavigationComponent,
     HomeComponent,
     ProjectsComponent,
-    DictionariesComponent
+    DictionariesComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,7 @@ import { DictionariesComponent } from './dictionaries/dictionaries.component';
     HttpModule,
     DictionaryRouterModule
   ],
-  providers: [],
+  providers: [ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
