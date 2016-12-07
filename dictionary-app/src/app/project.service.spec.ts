@@ -48,7 +48,6 @@ describe('Service: Project', () => {
 
       blogService.getProjects().subscribe(
         (data) => {
-          console.log(data)
           expect(data.length).toBe(1);
           expect(data[0].id).toBe(1);
           expect(data[0].name).toBe('Project 1');

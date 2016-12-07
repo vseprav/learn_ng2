@@ -1,32 +1,39 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed, async} from '@angular/core/testing';
 
-import { ProjectsComponent } from './projects.component';
+import {ProjectsComponent} from './projects.component';
 import {ProjectService} from "../project.service";
-import {ProjectServiceStub} from "../../../testing/services/project.service.stub";
 import {ProjectComponent} from "./project/project.component";
+import {Http, ConnectionBackend, RequestOptions, ResponseOptions, Response} from "@angular/http";
+import {Observable} from "rxjs";
+import {ProjectServiceStub} from "../../../testing/services/project.service.stub";
 
 describe('ProjectsComponent', () => {
   let component: ProjectsComponent;
   let fixture: ComponentFixture<ProjectsComponent>;
   let compiled: any;
   let projectService: ProjectService;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ProjectComponent, ProjectsComponent ],
-      providers:    [ {provide: ProjectService, useValue: ProjectServiceStub } ]
-    })
-    .compileComponents();
-  }));
+  let projects = [{name: 'Project 1', id: 1}];
+  let projectServiceStub;
 
   beforeEach(() => {
+
+    projectServiceStub = {
+      getProjects: function () {
+        return Observable.from([
+          new Response(new ResponseOptions({body: projects}))
+        ]).map(ProjectService.extractData);
+      }
+    };
+
+    TestBed.configureTestingModule({
+      declarations: [ProjectComponent, ProjectsComponent],
+      providers: [{provide: ProjectService, useValue: projectServiceStub}]
+    }).compileComponents();
+
     fixture = TestBed.createComponent(ProjectsComponent);
-    projectService = fixture.debugElement.injector.get(ProjectService);
     component = fixture.componentInstance;
-    component.projects = [{title:'Project 1', id:1}];
-    compiled = fixture.debugElement.nativeElement;
-    fixture.detectChanges();
+    projectService = TestBed.get(ProjectService);
   });
 
   it('should create', () => {
@@ -35,10 +42,21 @@ describe('ProjectsComponent', () => {
 
   it('should render app-project tag', async(() => {
     fixture.detectChanges();
+    compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('app-project')).toBeTruthy();
   }));
 
-  it('should render project title Project 1', async(() => {
-    expect(compiled.querySelector('.title').textContent).toEqual('Project 1');
+  it('should render project name Project 1', async(() => {
+    fixture.detectChanges();
+    compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.name').textContent).toEqual('Project 1');
   }));
+
+  it('should render button for add Project', async(() => {
+    fixture.detectChanges();
+    compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.add-project').textContent).toEqual('Add');
+    expect(compiled.querySelector('.add-project').href).toContain('/projects/new');
+  }));
+
 });

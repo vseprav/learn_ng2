@@ -1,3 +1,6 @@
-<div *ngFor="let project of projects">
-  <app-project  [title]="project.title" [id]="project.id"></app-project>
+<div *ngIf="projects">
+  <div *ngFor="let project of projects">
+    <app-project  [name]="project.name" [id]="project.id"></app-project>
+  </div>
 </div>
+<a class="add-project" href="/projects/new">Add</a>

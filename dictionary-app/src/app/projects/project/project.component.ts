@@ -6,7 +6,7 @@ import {Component, OnInit, Input} from '@angular/core';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
-  @Input('title') title: string;
+  @Input('name') name: string;
   @Input('id') id: number;
 
   constructor() {

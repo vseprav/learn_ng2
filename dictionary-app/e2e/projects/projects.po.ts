@@ -5,7 +5,12 @@ export class DictionaryProjectsPage {
     return browser.get(url);
   }
 
-  getParagraphText() {
-    return element(by.css('app-root p')).getText();
+  getProjectName() {
+    return element(by.css('app-project .name')).getText();
   }
+
+  getNewProjectTitle() {
+    return element(by.css('app-project-form .title')).getText();
+  }
+
 }

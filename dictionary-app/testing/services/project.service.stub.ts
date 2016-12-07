@@ -4,4 +4,7 @@ import { Injectable } from '@angular/core';
 export class ProjectServiceStub {
 
   constructor() { }
+
+  getProjects(){}
+
 }

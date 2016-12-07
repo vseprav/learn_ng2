@@ -20,7 +20,7 @@ describe('ProjectComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ProjectComponent);
     component = fixture.componentInstance;
-    component.title = 'Project 1';
+    component.name = 'Project 1';
     component.id = 1;
     compiled = fixture.debugElement.nativeElement;
     fixture.detectChanges();
@@ -31,7 +31,7 @@ describe('ProjectComponent', () => {
   });
 
   it('should render project title Project 1', async(() => {
-    expect(compiled.querySelector('.title').textContent).toEqual('Project 1');
+    expect(compiled.querySelector('.name').textContent).toEqual('Project 1');
   }));
 
   it('should render edit project link', async(() => {

@@ -11,6 +11,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { DictionariesComponent } from './dictionaries/dictionaries.component';
 import { ProjectComponent } from './projects/project/project.component';
 import {ProjectService} from "./project.service";
+import { ProjectFormComponent } from './projects/project-form/project-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {ProjectService} from "./project.service";
     HomeComponent,
     ProjectsComponent,
     DictionariesComponent,
-    ProjectComponent
+    ProjectComponent,
+    ProjectFormComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,12 @@ describe('dictionary-app Home', function() {
 
   it('should display content projects works!', () => {
     page.navigateTo('/projects');
-    expect(page.getParagraphText()).toEqual('projects works!');
+    expect(page.getProjectName()).toEqual('Project 1');
   });
+
+  it('should display content projects works!', () => {
+    page.navigateTo('/projects/new');
+    expect(page.getNewProjectTitle()).toEqual('New Project');
+  });
+
 });

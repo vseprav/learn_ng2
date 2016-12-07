@@ -14,7 +14,7 @@ export class ProjectService {
     return this.http.get(this.url).map(ProjectService.extractData);
   }
 
-  private static extractData(res: Response) {
+  public static extractData(res: Response) {
     return res.json();
   }
 
