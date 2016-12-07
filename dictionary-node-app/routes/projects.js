@@ -5,7 +5,23 @@ var router = express.Router();
 var Project = mongoose.model('Project');
 
 router.get('/', function (req, res) {
-    Project.find().sort('date').exec(function (arr,data) {
+    Project.find().sort('date').exec(function (err,data) {
+        if (err) {
+            res.send(404, err);
+            return;
+        }
+        res.json(data);
+    });
+});
+
+router.get('/:id', function (req, res) {
+    var id = req.params.id;
+
+    Project.findOne( {'_id' : id }, function(err, data){
+        if (err) {
+            res.send(404, err);
+            return;
+        }
         res.json(data);
     });
 });
