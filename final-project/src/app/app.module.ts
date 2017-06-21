@@ -10,7 +10,8 @@ import { PostsComponent } from './posts/posts.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo:'home', pathMatch: 'full' },
   { path: 'users',      component: UsersComponent },
   { path: 'posts',  component: PostsComponent },
   { path: '**', component: PageNotFoundComponent }

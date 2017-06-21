@@ -1,11 +1,11 @@
-<ul class="nav">
+<ul class="nav nav-pills">
   <li class="nav-item">
-    <a class="nav-link active" href="#">ngProject</a>
+    <a [routerLinkActive]="['active']" class="nav-link active" [routerLink]="['/home']">ngProject</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Users</a>
+    <a [routerLinkActive]="['active']" class="nav-link" [routerLink]="['/users']">Users</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Posts</a>
+    <a [routerLinkActive]="['active']" class="nav-link" [routerLink]="['/posts']">Posts</a>
   </li>
 </ul>
