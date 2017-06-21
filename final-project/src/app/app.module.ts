@@ -8,11 +8,14 @@ import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { PostsComponent } from './posts/posts.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { UserComponent } from './user/user.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo:'home', pathMatch: 'full' },
   { path: 'users',      component: UsersComponent },
+  { path: 'users/new',      component: AddUserComponent },
   { path: 'posts',  component: PostsComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -24,7 +27,9 @@ const appRoutes: Routes = [
     HomeComponent,
     UsersComponent,
     PostsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    UserComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
